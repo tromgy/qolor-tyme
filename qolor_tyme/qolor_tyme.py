@@ -16,7 +16,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt, QTimer
-import sys
 
 class _QolorRect(QtWidgets.QWidget):
     
@@ -157,18 +156,3 @@ class QolorTymeDisplay(QtWidgets.QWidget):
     def set_color(self, color):
         self._rect._bg_color = QtGui.QColor(color)
         self._rect.update()
-
-
-# Main
-if __name__ == "__main__":
-    app = QtWidgets.QApplication([])
-
-    display = None
-
-    if len(sys.argv) > 1:
-        display = QolorTymeDisplay(total_count = int(sys.argv[1]))
-    else:
-        display = QolorTymeDisplay()
-
-    display.show()
-    app.exec_()
